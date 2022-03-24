@@ -2,26 +2,41 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card card-body">
+        <form (submit)="submitLocation(cityName, unit)">
+          <input
+            type="text"
+            placeholder="City Name"
+            class="form-control"
+            autofocus
+            #cityName
+          />
 
-        <form (submit)="submitLocation(cityName)">
-          <input type="text" placeholder="City Name" class="form-control" autofocus #cityName>
 
-          <button class="btn btn-primary btn-block mt-2">
-            Get Weather
-          </button>
+            <input class="form-check-input" type="radio" name="unit" id="unit" value="metric" #unit>
+            <label class="form-check-label" for="metric">
+              Metric
+            </label>
+
+            <input class="form-check-input" type="radio" name="unit" id="unit" #unit>
+            <label class="form-check-label" for="imperial">
+              Imperial
+            </label>
+
+          <button class="btn btn-primary btn-block mt-2">Get Weather</button>
         </form>
       </div>
     </div>
-    <div class="col-md-6">
-      <div *ngIf="weather" class="card card-body text-center" >
+    <div class="col-md-6" *ngFor="let user of weather.list; index as i;">
+      <div *ngIf="weather" class="card card-body text-center">
         <h1 class="h4">Weather Information</h1>
-        <p>City: {{weather.list[0].name}}</p>
-        <p>Latitude: {{weather.list[0].coord.lat}}</p>
-        <p>Longitude: {{weather.list[0].coord.lon}}</p>
-        <p>Humidity: {{weather.list[0].main.humidity}}</p>
-        <p>Pressure: {{weather.list[0].main.pressure}}</p>
-        <p>Temperature: {{weather.list[0].main.temp}} °C</p>
-        <p>Description: {{weather.list[0].weather[0].description }}</p>
+        <p>City: {{ weather.list[i].name }}</p>
+        <p>Country: {{ weather.list[i].sys.country }}</p>
+        <p>Latitude: {{ weather.list[i].coord.lat }}</p>
+        <p>Longitude: {{ weather.list[i].coord.lon }}</p>
+        <p>Humidity: {{ weather.list[i].main.humidity }}</p>
+        <p>Pressure: {{ weather.list[i].main.pressure }}</p>
+        <p>Temperature: {{ weather.list[i].main.temp }} °C</p>
+        <p>Description: {{ weather.list[i].weather[0].description }}</p>
       </div>
     </div>
   </div>

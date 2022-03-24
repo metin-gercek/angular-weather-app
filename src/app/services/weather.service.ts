@@ -14,7 +14,7 @@ export class WeatherService {
 
   }
 
-  getWeather(cityName: string) {
-    return this.http.get(`${this.URI}${cityName}&appid=${this.apiKey}`);
+  getWeather(cityName: string, unit: string) {
+    return this.http.get(`${this.URI}${cityName}&appid=${this.apiKey}&units=${unit}`);
   }
 }

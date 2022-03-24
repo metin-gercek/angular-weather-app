@@ -8,18 +8,18 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
 
-  location = { cityName: 'London'};
+  location = { cityName: 'London', unit: 'metric'};
   weather: any;
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.getWeather(this.location.cityName);
+    this.getWeather(this.location.cityName, this.location.unit);
   }
 
-  getWeather(cityName: string) {
+  getWeather(cityName: string, unit: string) {
     this.weatherService
-      .getWeather(cityName)
+      .getWeather(cityName,unit)
       .subscribe(
         res => {
           console.log(res);
@@ -34,16 +34,18 @@ export class AppComponent implements OnInit {
       );
   }
 
-  submitLocation(cityName: HTMLInputElement) {
-    if (cityName.value) {
-      this.getWeather(cityName.value);
+  submitLocation(cityName: HTMLInputElement, unit: HTMLInputElement) {
+    if (cityName.value && unit.value) {
+      this.getWeather(cityName.value, unit.value);
 
       cityName.value = '';
+      unit.value = '';
 
     } else {
-      alert('Please. Insert some values');
+      alert('Please. Insert coreect values');
     }
     cityName.focus();
+    unit.focus();
     return false;
   }
 
