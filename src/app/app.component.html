@@ -3,24 +3,15 @@
     <div class="col-md-6">
       <div class="card card-body">
         <form (submit)="submitLocation(cityName, unit)">
-          <input
-            type="text"
-            placeholder="City Name"
-            class="form-control"
-            autofocus
-            #cityName
-          />
+          <input type="text" placeholder="City Name" class="form-control" autofocus #cityName/>
 
 
-            <input class="form-check-input" type="radio" name="unit" id="unit" value="metric" #unit>
-            <label class="form-check-label" for="metric">
-              Metric
-            </label>
+          <input type="text" placeholder="metric / imperial" class="form-control" #unit>
 
-            <input class="form-check-input" type="radio" name="unit" id="unit" #unit>
-            <label class="form-check-label" for="imperial">
-              Imperial
-            </label>
+
+
+
+
 
           <button class="btn btn-primary btn-block mt-2">Get Weather</button>
         </form>
