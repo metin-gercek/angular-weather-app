@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
-  uri: string = '';
-  apiKey = '1cb6ace31e50401f28b864f0b23fdc68';
-
+  apiKey: string = '653ec38ccc56d254339a1c306706156a';
+  URI: string = '';
 
   constructor(private http: HttpClient) {
-    this.uri =  `https://api.openweathermap.org/data/2.5/weather?appid=${this.apiKey}&units=metric&q=`;
-   }
+    this.URI = `http://api.openweathermap.org/data/2.5/find?q=`;
 
-   getWether(cityName: string) {
-    return this.http.get(`${this.uri}${cityName}`);
+  }
 
-   }
+  getWeather(cityName: string) {
+    return this.http.get(`${this.URI}${cityName}&appid=${this.apiKey}`);
+  }
 }
