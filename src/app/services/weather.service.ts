@@ -10,7 +10,7 @@ export class WeatherService {
   URI: string = '';
 
   constructor(private http: HttpClient) {
-    this.URI = `http://api.openweathermap.org/data/2.5/find?q=`;
+    this.URI = `https://api.openweathermap.org/data/2.5/find?q=`;
 
   }
 
