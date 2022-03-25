@@ -11,12 +11,18 @@
             #cityName
           />
 
-          <input
+          <!-- <input
             type="text"
             placeholder="metric / imperial"
             class="form-control"
             #unit
-          />
+          /> -->
+
+          <select class="form-select" #unit >
+
+            <option value="metric" selected>Metric</option>
+            <option value="imperial">Imperial</option>
+          </select>
 
           <button class="btn btn-primary btn-block mt-2">Get Weather</button>
         </form>
@@ -32,12 +38,7 @@
         <p>Humidity: {{ weather.list[i].main.humidity }}</p>
         <p>Pressure: {{ weather.list[i].main.pressure }}</p>
 
-          <p >
-            Temperature: {{ weather.list[i].main.temp }} °C
-          </p>
-          <p>
-            Temperature: {{ weather.list[i].main.temp }} °F
-          </p>
+        <p>Temperature: {{ weather.list[i].main.temp }} </p>
 
 
         <p>Description: {{ weather.list[i].weather[0].description }}</p>

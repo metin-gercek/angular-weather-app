@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
       );
   }
 
-  submitLocation(cityName: HTMLInputElement, unit: HTMLInputElement) {
+  submitLocation(cityName: HTMLInputElement, unit: HTMLSelectElement) {
     if (cityName.value && unit.value) {
       this.getWeather(cityName.value, unit.value);
 
