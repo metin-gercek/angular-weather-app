@@ -8,7 +8,7 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
 
-  location = { cityName: '', unit: ''};
+  location = { cityName: '', unit: 'metric'};
   weather: any;
 
   constructor(private weatherService: WeatherService) { }
@@ -38,14 +38,14 @@ export class AppComponent implements OnInit {
     if (cityName.value && unit.value) {
       this.getWeather(cityName.value, unit.value);
 
-      cityName.value = '';
-      unit.value = '';
+      // cityName.value = '';
+      // unit.value = '';
 
     } else {
       alert('Please. Insert coreect values');
     }
-    cityName.focus();
-    unit.focus();
+    // cityName.focus();
+    // unit.focus();
     return false;
   }
 

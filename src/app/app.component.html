@@ -1,11 +1,11 @@
 <div class="container p-4">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" >
       <div class="card card-body">
-        <form (submit)="submitLocation(cityName, unit)">
+        <form (submit)="submitLocation(cityName, unit)" >
           <input
             type="text"
-            placeholder="City Name"
+
             class="form-control"
             autofocus
             #cityName
@@ -19,8 +19,8 @@
           /> -->
 
           <select class="form-select" #unit >
-
-            <option value="metric" selected>Metric</option>
+            <option value="none" selected >Select a unit</option>
+            <option value="metric" >Metric</option>
             <option value="imperial">Imperial</option>
           </select>
 
@@ -38,7 +38,10 @@
         <p>Humidity: {{ weather.list[i].main.humidity }}</p>
         <p>Pressure: {{ weather.list[i].main.pressure }}</p>
 
-        <p>Temperature: {{ weather.list[i].main.temp }} </p>
+
+        <p >Temperature: {{ weather.list[i].main.temp.toFixed(0)  }}  </p>
+        <p *ngIf="unit.value === 'metric'; then thenBlock else elseBlock"></p><ng-template #thenBlock>Unit: °C</ng-template><ng-template #elseBlock>Unit: °F</ng-template>
+
 
 
         <p>Description: {{ weather.list[i].weather[0].description }}</p>
