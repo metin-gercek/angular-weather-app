@@ -3,21 +3,26 @@
     <div class="col-md-6">
       <div class="card card-body">
         <form (submit)="submitLocation(cityName, unit)">
-          <input type="text" placeholder="City Name" class="form-control" autofocus #cityName/>
+          <input
+            type="text"
+            placeholder="City Name"
+            class="form-control"
+            autofocus
+            #cityName
+          />
 
-
-          <input type="text" placeholder="metric / imperial" class="form-control" #unit>
-
-
-
-
-
+          <input
+            type="text"
+            placeholder="metric / imperial"
+            class="form-control"
+            #unit
+          />
 
           <button class="btn btn-primary btn-block mt-2">Get Weather</button>
         </form>
       </div>
     </div>
-    <div class="col-md-6" *ngFor="let user of weather.list; index as i;">
+    <div class="col-md-6 p-3" *ngFor="let user of weather.list; index as i">
       <div *ngIf="weather" class="card card-body text-center">
         <h1 class="h4">Weather Information</h1>
         <p>City: {{ weather.list[i].name }}</p>
@@ -26,7 +31,15 @@
         <p>Longitude: {{ weather.list[i].coord.lon }}</p>
         <p>Humidity: {{ weather.list[i].main.humidity }}</p>
         <p>Pressure: {{ weather.list[i].main.pressure }}</p>
-        <p>Temperature: {{ weather.list[i].main.temp }} °C</p>
+
+          <p >
+            Temperature: {{ weather.list[i].main.temp }} °C
+          </p>
+          <p>
+            Temperature: {{ weather.list[i].main.temp }} °F
+          </p>
+
+
         <p>Description: {{ weather.list[i].weather[0].description }}</p>
       </div>
     </div>

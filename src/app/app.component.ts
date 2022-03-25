@@ -8,7 +8,7 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
 
-  location = { cityName: 'London', unit: 'metric'};
+  location = { cityName: '', unit: ''};
   weather: any;
 
   constructor(private weatherService: WeatherService) { }
